@@ -20,4 +20,11 @@ RUN pip install --quiet --no-cache-dir \
 # Install auto-skleran
 RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip3 install
 RUN pip3 install auto-sklearn
+RUN sudo apt-get update
 RUN sudo apt-get install build-essential swig
+
+# Install additional python packages
+RUN pip3 install graphviz
+RUN pip3 install pandas-profiling
+RUN pip3 install PipelineProfiler
+RUN pip3 install pickle
