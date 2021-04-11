@@ -12,19 +12,21 @@ RUN pip install --quiet --no-cache-dir \
     fix-permissions "/home/${NB_USER}"
 
 # Install autokeras
-RUN pip install --quiet --no-cache-dir \
-    'autokeras' && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+RUN pip install autokeras
 
 # Install auto-skleran
-RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip3 install
-RUN pip3 install auto-sklearn
 RUN sudo apt-get update
 RUN sudo apt-get install build-essential swig
+RUN pip3 install auto-sklearn
 
 # Install additional python packages
 RUN pip3 install graphviz
 RUN pip3 install pandas-profiling
 RUN pip3 install PipelineProfiler
 RUN pip3 install pickle
+RUN pip install icd10-cm
+RUN pip3 install graphviz
+RUN pip3 install seaborn
+RUN pip3 install spacy
+RUN pip3 install gensim
+RUN pip3 install pyLDAvis
